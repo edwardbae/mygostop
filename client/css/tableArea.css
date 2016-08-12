@@ -1,0 +1,48 @@
+#main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#oppArea{
+    height: 150px;
+}
+.oppHand{
+    min-height: 65px;
+}
+#table{
+    height: 160px;
+    background: #1c3916;
+    border-radius: 10px;
+    border: 8px solid #1c3916;
+}
+.display{
+    position: absolute;
+    top: 270px;
+    min-width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background: black;
+}
+#playerArea{
+}
+#pileArea{
+    height: 110px;
+}
+#cardArea{
+}
+#pile01{
+    float: left;
+    width: 45px;
+    min-height: 80px;
+}
+#pile05{
+    float: left;
+    min-height: 80px;
+    width: 75px;
+}
+#pile10{
+    float: left;
+    min-height: 80px;
+    width: 145px;
+}

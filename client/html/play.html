@@ -1,0 +1,56 @@
+<template name="play">
+    {{#if currentUser}}
+        {{> navbarTop}}
+
+        {{> oppArea}}
+        {{> table}}
+        {{> playerArea}}
+
+        {{> navbarBottom}}
+    {{/if}}
+</template>
+
+<template name="table">
+    <div id="table">
+        <div class="flexParent">
+            {{#each sort table}}
+                <div class="tableCards boxshadow01">
+                    <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+                </div>
+            {{/each}}
+            {{> deck}}
+        </div>
+        <!-- <div class="display">
+            <span class="bright">Last hand played is {{mySelection.[0].name}} of {{mySelection.[0].suit}}</span>
+        </div> -->
+    </div>
+</template>
+
+<template name="deck">
+    <div id="deck">
+        <div class="deckCards boxshadow01">
+            <a href="#" id="pickDeck">
+                <div>{{deck.length}}</div>
+                <div><small>Cards</small></div>
+                <div><small>Remain</small></div>
+            </a>
+        </div>
+    </div>
+</template>
+
+<template name="target">
+    <div id="pile10">
+        <h2>Target</h2>
+        <ul>
+            {{#each target}}
+                <li>{{name}} of {{suit}}</li>
+            {{/each}}
+        </ul>
+        <h2>My Selection</h2>
+        <ul>
+            {{#each mySelection}}
+                <li>{{name}} of {{suit}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

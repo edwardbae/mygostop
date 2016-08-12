@@ -1,0 +1,49 @@
+
+<template name="oppArea">
+    <div id="oppArea">
+        <div id="cardArea">
+            {{> oppHand}}
+            {{> oppPile01}}
+            {{> oppPile05}}
+            {{> oppPile10}}
+        </div>
+    </div>
+</template>
+
+<template name="oppHand">
+    <div class="oppHand flexParent">
+        {{#each sort otherPlayer.hand}}
+            <div class="oppCards boxshadow01"></div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="oppPile10">
+    <div id="pile10" class="flexParent">
+        {{#each otherPlayer.pile10}}
+            <div class="pile10Cards boxshadow01">
+                <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+            </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="oppPile05">
+    <div id="pile05" class="flexParent">
+            {{#each otherPlayer.pile05}}
+            <div class="pile05Cards boxshadow01">
+                <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+            </div>
+            {{/each}}
+    </div>
+</template>
+
+<template name="oppPile01">
+    <div id="pile01" class="flexParent">
+        {{#each otherPlayer.pile01}}
+            <div class="pile01Cards boxshadow01">
+                <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+            </div>
+        {{/each}}
+    </div>
+</template>

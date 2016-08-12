@@ -1,0 +1,51 @@
+body{
+    margin:0;
+    padding:0;
+    background: #417407;
+    background-image: url(img/bg02.png);
+
+}
+#main{
+    margin: auto;
+}
+#login{
+    background: #ccc;
+    border: 1px solid #474747;
+    margin: 10px 0;
+    padding: 10px;
+}
+.♥ {color:#EE6E73;}
+.♦ {color:#EE6E73;}
+.♣ {color:black;}
+.♠ {color:black;}
+
+#hand .card:hover{
+    cursor: pointer;
+}
+#table{
+    min-height: 162px;
+    text-decoration: none;
+}
+#hand{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.column{
+    width: 48%;
+    float: left;
+    padding-right: 2%;
+}
+.column:last-of-type{
+    padding: 0 0 0 2%;
+}
+.boxshadow01{
+    -webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.53);
+    -moz-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.53);
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.53);
+}

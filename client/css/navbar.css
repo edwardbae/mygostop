@@ -1,0 +1,32 @@
+.blackbar{
+    background: #232423;
+    height: 20px;
+}
+
+.backIcon {
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 1.8em;
+}
+.playerInfo {
+    color: #ccc;
+    margin-top: 14px;
+}
+.otherPlayerInfo {
+    color: #ccc;
+    margin-top: 5px;
+}
+.playerTurn{
+    background: yellow;
+}
+.navbar{
+    background: #232423;
+}
+.table{
+    margin: 0;
+    padding: 0;
+}
+.bright{
+    color: yellow;
+}

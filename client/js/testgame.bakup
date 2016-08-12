@@ -1,0 +1,301 @@
+{
+  "_id": "BPG73e7AY7HsyHq5X",
+  "deck": [
+    {
+      "suit": "♥",
+      "value": 9,
+      "name": 9
+    },
+    {
+      "suit": "♠",
+      "value": 9,
+      "name": 9
+    },
+    {
+      "suit": "♦",
+      "value": 7,
+      "name": 7
+    },
+    {
+      "suit": "♠",
+      "value": 7,
+      "name": 7
+    },
+    {
+      "suit": "♥",
+      "value": 5,
+      "name": 5
+    },
+    {
+      "suit": "♥",
+      "value": 11,
+      "name": "J"
+    },
+    {
+      "suit": "♠",
+      "value": 2,
+      "name": 2
+    },
+    {
+      "suit": "♦",
+      "value": 8,
+      "name": 8
+    },
+    {
+      "suit": "♦",
+      "value": 3,
+      "name": 3
+    },
+    {
+      "suit": "♣",
+      "value": 3,
+      "name": 3
+    },
+    {
+      "suit": "♥",
+      "value": 3,
+      "name": 3
+    },
+    {
+      "suit": "♣",
+      "value": 12,
+      "name": "Q"
+    },
+    {
+      "suit": "♥",
+      "value": 7,
+      "name": 7
+    },
+    {
+      "suit": "♣",
+      "value": 6,
+      "name": 6
+    },
+    {
+      "suit": "♦",
+      "value": 4,
+      "name": 4
+    },
+    {
+      "suit": "♥",
+      "value": 13,
+      "name": "K"
+    },
+    {
+      "suit": "♣",
+      "value": 9,
+      "name": 9
+    },
+    {
+      "suit": "♦",
+      "value": 1,
+      "name": "A"
+    },
+    {
+      "suit": "♥",
+      "value": 10,
+      "name": 10
+    },
+    {
+      "suit": "♠",
+      "value": 3,
+      "name": 3
+    },
+    {
+      "suit": "♦",
+      "value": 2,
+      "name": 2
+    },
+    {
+      "suit": "♦",
+      "value": 6,
+      "name": 6
+    }
+  ],
+  "players": {
+    "ymSmmCWJtgBK4TSYh": {
+      "hand": [
+        {
+          "suit": "♦",
+          "value": 9,
+          "name": 9
+        },
+        {
+          "suit": "♠",
+          "value": 1,
+          "name": "A"
+        },
+        {
+          "suit": "♣",
+          "value": 10,
+          "name": 10
+        },
+        {
+          "suit": "♠",
+          "value": 4,
+          "name": 4
+        },
+        {
+          "suit": "♠",
+          "value": 13,
+          "name": "K"
+        },
+        {
+          "suit": "♦",
+          "value": 10,
+          "name": 10
+        },
+        {
+          "suit": "♣",
+          "value": 5,
+          "name": 5
+        },
+        {
+          "suit": "♣",
+          "value": 13,
+          "name": "K"
+        },
+        {
+          "suit": "♣",
+          "value": 1,
+          "name": "A"
+        },
+        {
+          "suit": "♥",
+          "value": 4,
+          "name": 4
+        },
+        {
+          "suit": "♣",
+          "value": 7,
+          "name": 7
+        }
+      ],
+      "pile10": [],
+      "pile05": [],
+      "pile01": [],
+      "score": 0,
+      "go": 0,
+      "stooler": 0,
+      "times": 1
+    },
+    "4cryPi36WdRL3gxxF": {
+      "hand": [
+        {
+          "suit": "♣",
+          "value": 4,
+          "name": 4
+        },
+        {
+          "suit": "♠",
+          "value": 8,
+          "name": 8
+        },
+        {
+          "suit": "♦",
+          "value": 5,
+          "name": 5
+        },
+        {
+          "suit": "♥",
+          "value": 2,
+          "name": 2
+        },
+        {
+          "suit": "♦",
+          "value": 13,
+          "name": "K"
+        },
+        {
+          "suit": "♦",
+          "value": 11,
+          "name": "J"
+        },
+        {
+          "suit": "♦",
+          "value": 12,
+          "name": "Q"
+        },
+        {
+          "suit": "♠",
+          "value": 10,
+          "name": 10
+        },
+        {
+          "suit": "♥",
+          "value": 1,
+          "name": "A"
+        },
+        {
+          "suit": "♠",
+          "value": 6,
+          "name": 6
+        },
+        {
+          "suit": "♠",
+          "value": 11,
+          "name": "J"
+        }
+      ],
+      "pile10": [],
+      "pile05": [],
+      "pile01": [],
+      "score": 0,
+      "go": 0,
+      "stooler": 0,
+      "times": 1
+    }
+  },
+  "table": [
+    {
+      "suit": "♣",
+      "value": 2,
+      "name": 2
+    },
+    {
+      "suit": "♣",
+      "value": 8,
+      "name": 8
+    },
+    {
+      "suit": "♥",
+      "value": 8,
+      "name": 8
+    },
+    {
+      "suit": "♥",
+      "value": 12,
+      "name": "Q"
+    },
+    {
+      "suit": "♥",
+      "value": 6,
+      "name": 6
+    },
+    {
+      "suit": "♠",
+      "value": 5,
+      "name": 5
+    },
+    {
+      "suit": "♣",
+      "value": 11,
+      "name": "J"
+    },
+    {
+      "suit": "♠",
+      "value": 12,
+      "name": "Q"
+    }
+  ],
+  "currentTurn": [
+    "ymSmmCWJtgBK4TSYh",
+    "4cryPi36WdRL3gxxF"
+  ],
+  "inProgress": true,
+  "playerTurn": true,
+  "stooler": false,
+  "started": "2016-08-07T23:24:01.956Z",
+  "target": [],
+  "mySelection": []
+}

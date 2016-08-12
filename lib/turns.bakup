@@ -1,0 +1,113 @@
+Turns = {};
+
+//checks if cardObject is included in the setArray
+Turns.inHand = function(set, cardObject) {
+    for (var i = 0; i < set.length; i++) {
+        if (matchCard(set[i], cardObject)) return true
+    }
+    return false;
+};
+
+function matchCard(a,b){
+    return a.suit===b.suit && a.value===b.value
+}
+
+// Turns.getMatch = function (card, set) {
+//     var matches = Turns.findMatches(card, set);
+//     return matches;
+// };
+
+Turns.findMatches =  function(card, set){
+    var matches=[];
+    set.forEach(function(tableCard){
+        if (tableCard.value===card.value) {
+            matches.push(tableCard);
+        }
+    });
+    return matches;
+};
+
+
+// Turns.flipDeck = function(card, gameTable){
+//     var matches=[];
+//     gameTable.forEach(function(tableCard){
+//         if (tableCard.value===card.value) {
+//             matches.push(tableCard);
+//         }
+//     });
+//     return
+// }
+
+Turns.takeMatch = function(gameId, game, playerId, card, match) {
+    var empObj = {}
+    if (card.value === 1) {
+        empObj['players.'+playerId+'.pile01'] = match[0]
+        Games.update(gameId, {
+            $push:empObj
+        });
+        empObj['players.'+playerId+'.pile01'] = card
+        Games.update(gameId, {
+            $push:empObj
+        });
+    } else if (card.value > 9) {
+        empObj['players.'+playerId+'.pile05'] = match[0]
+        Games.update(gameId, {
+            $push:empObj
+        });
+        empObj['players.'+playerId+'.pile05'] = card
+        Games.update(gameId, {
+            $push:empObj
+        });
+
+    } else {
+        empObj['players.'+playerId+'.pile10'] = match[0]
+        Games.update(gameId, {
+            $push:empObj
+        });
+        empObj['players.'+playerId+'.pile10'] = card
+        Games.update(gameId, {
+            $push:empObj
+        });
+    }
+    Turns.removeCardFromTable(gameId, card, game.table);
+    Turns.removeCardFromTable(gameId, match[0], game.table);
+};
+Turns.removeCardFromTable = function (gameId, card, set) {
+    // console.log('hello from remove card from table');
+    // console.log(gameId);
+    console.log(card);
+    console.log(set);
+    Games.update(gameId, {
+        $pull:{table:card}
+    });
+
+}
+Turns.addCardToTable = function (gameId, card, set) {
+    Games.update(gameId, {
+        $push:{table:card}
+    });
+}
+Turns.removeCardFromHand = function (gameId, playerId, card, set) {
+    var empObj = {}
+    empObj['players.'+playerId+'.hand'] = card
+    Games.update(gameId, {
+        $pull:empObj
+    });
+}
+Turns.removeCardFromDeck = function (gameId, playerId, card, set) {
+    Games.update(gameId, {
+        $pull:{deck:card}
+    });
+}
+
+Turns.takeOppCard = function (special) {
+    console.log(special+" Take one card from opponents pile");
+}
+Turns.chooseMatch = function (){
+    console.log("choose from the two cards");
+}
+Turns.checkStooler = function (game, gameId, playerId, flipCard){
+    if (game.players[playerId].playing.length ===2 && flipCard.value === game.players[playerId].playing[0].value && flipCard.value === game.players[playerId].playing[1].value) {
+        console.log('STOOLED!!!!');
+    }
+}

@@ -1,0 +1,38 @@
+/* ------------------------------------------------------ */
+.deckCards {
+    background: white;
+    width: 40px;
+    height: 60px;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 0.8em;
+    color: black;
+    font-weight: bolder;
+    padding-top: 3px;
+    float: right;
+    margin-top: 5px;
+    background-image: url("img/deckback.png");
+    background-size: 60px;
+    position: absolute;
+    left: 250px;
+    top: 240px;
+}
+.deckCards a{
+    text-decoration: none;
+    color: inherit;
+}
+/*.oppCards:first-child{
+    margin-right: 0px;
+}*/
+.oppCards {
+    margin-right: -5px;
+    margin-top: 20px;
+    background: white;
+    display: inline-block;
+    width: 25px;
+    height: 40px;
+    text-align: left;
+    border-radius: 6px;
+    background-image: url("img/cardback.jpg");
+    background-size: 60px;
+}

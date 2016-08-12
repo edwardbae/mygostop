@@ -1,0 +1,52 @@
+<template name="playerArea">
+    <div id="playerArea">
+        <div id="pileArea">
+            {{> pile01}}
+            {{> pile05}}
+            {{> pile10}}
+        </div>
+        <div id="cardArea">
+            {{> hand}}
+        </div>
+    </div>
+</template>
+
+<template name="hand">
+    <div id="hand" class="flexParent">
+        {{#each sort player.hand}}
+            <div class="handCards boxshadow01">
+                <a href="#" id="pickMyHand"> <div class="{{suit}}"> {{name}} </div> <div class="{{suit}}"> {{suit}} </div>  </a>
+            </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="pile10">
+    <div id="pile10" class="flexParent">
+        {{#each player.pile10}}
+            <div class="pile10Cards boxshadow01">
+                <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+            </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="pile05">
+    <div id="pile05" class="flexParent">
+            {{#each player.pile05}}
+            <div class="pile05Cards boxshadow01">
+                <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+            </div>
+            {{/each}}
+    </div>
+</template>
+
+<template name="pile01">
+    <div id="pile01" class="flexParent">
+        {{#each player.pile01}}
+            <div class="pile01Cards boxshadow01">
+                <div class="{{suit}}">{{name}} </div> <div class="{{suit}}"> {{suit}}</div>
+            </div>
+        {{/each}}
+    </div>
+</template>

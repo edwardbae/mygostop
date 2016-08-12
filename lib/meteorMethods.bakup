@@ -1,0 +1,60 @@
+Meteor.methods({
+    createGameMethod: function(otherPlayerId){
+        var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
+        Games.insert(game);
+    },
+    takeTurnMethod1: function(gameId, playerId, card){
+        var game = Games.findOne(gameId),
+            hand = game.players[playerId].hand; //player's cards array
+
+        if (game.currentTurn[0] !== playerId || !Turns.inHand(hand, card)) return; //checks if it is this players turn or if the card is in the players handarray.  if anyof it is false, simply return without running the rest of the code.  Lookslike this is a safety.  I will try to remove this later to test....
+
+        var match = Turns.findMatches(card, game.table);
+        if (match.length === 1 || match.length === 2 || match.length === 3) {
+            Turns.takeMatch(gameId, game, playerId, card, match)
+        } else if (match.length === 2) {
+            Turns.chooseMatch()
+        }
+        else if (match.length === 3) {
+            Turns.ohYeah();
+        }
+        else {
+            Games.update(gameId, {
+                $push:{table:card}
+            });
+        }
+        Turns.removeCardFromHand(gameId, playerId, card, hand);
+    },
+
+    takeTurnMethod2: function(gameId, playerId, card){
+        var game = Games.findOne(gameId),
+            hand = game.players[playerId].hand; //player's cards array
+            var flipCard = game.deck[0];
+            var flipMatch = Turns.findMatches(flipCard, game.table);
+            if (flipMatch.length === 1 || flipMatch.length === 2 || flipMatch.length === 3) {
+                Turns.takeMatch(gameId, game, playerId, flipCard, flipMatch)
+            } else {
+                Games.update(gameId, {
+                    $push:{table:flipCard}
+                });
+            }
+            Turns.removeCardFromDeck(gameId, playerId, flipCard, game.deck);
+
+            //change currentTurn
+            var empObj = {playerId}
+            Games.update(gameId, {
+                $pull: {currentTurn: playerId}
+            });
+            Games.update(gameId, {
+                $push: { currentTurn: { $each: [playerId], $position: 1 } }
+            });
+    }
+
+
+});
+
+function allHandsEmpty(players){
+    return _.every(players, function(player){
+        return player.hand.length === 0;
+    })
+}

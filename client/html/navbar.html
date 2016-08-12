@@ -1,0 +1,45 @@
+<template name="navbarTop">
+    <nav class="navbar navbarTop navbar-default navbar-fixed-top">
+        <div class="blackbar"></div>
+        <div class="container">
+            <div class="row otherPlayerInfo">
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-10">
+                    <table class="table table-condensed">
+                        {{#unless yourTurn}}<span class="bright glyphicon glyphicon-ok-sign">&nbsp;</span>  {{/unless}}
+                          <td>{{otherPlayer.username}}</td>
+                          <td>$37489</td>
+                          <td class="bright">{{otherPlayer.times}}x </td> &nbsp;|&nbsp;
+                          <td class="bright">{{otherPlayer.go}}go</td> &nbsp;|&nbsp;
+                          <td class="bright">{{otherPlayer.score}}pt</td>
+                    </table>
+                </div>
+                    <!-- <span class="{{#unless yourTurn}}playerTurn{{/unless}}">{{otherPlayer.username}} {{otherPlayer.score}}pt 2x 2-GO $1,544,356</span> -->
+            </div>
+        </div>
+    </nav>
+</template>
+
+<template name="navbarBottom">
+    <nav class="navbar navbarBottom navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="backIcon col-xs-2">
+                    <a href="/" class="glyphicon glyphicon-menu-left" aria-hidden="true"></a>
+                </div>
+                <div class="col-xs-10 playerInfo">
+                    <table class="table table-condensed">
+                        {{#if yourTurn}}<span class="bright glyphicon glyphicon-ok-sign">&nbsp;</span>  {{/if}}
+                          <td>{{currentUser.username}}</td>
+                          <td>$54353</td>
+                          <td class="bright">{{player.times}}x </td>&nbsp;|&nbsp;
+                          <td class="bright">{{player.go}}go</td>&nbsp;|&nbsp;
+                          <td class="bright">{{player.score}}pt</td>
+                    </table>
+                </div>
+                <!-- <span class="{{#if yourTurn}}playerTurn{{/if}}">{{currentUser.username}} {{player.score}}pt 2x 2-GO $1,544,356 </span> -->
+            </div>
+        </div>
+    </nav>
+</template>

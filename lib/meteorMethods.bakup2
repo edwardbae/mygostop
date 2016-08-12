@@ -1,0 +1,89 @@
+var playerTurnOver = false;
+Meteor.methods({
+    createGameMethod: function(otherPlayerId){
+        var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
+        Games.insert(game);
+    },
+    takeTurnMethod1: function(gameId, playerId, card){
+        var game = Games.findOne(gameId);
+        var hand = game.players[playerId].hand; //player's cards array
+        var playerTurn = game.playerTurn;
+        var stooler = game.stooler;
+        if (playerTurn) {
+            if (game.currentTurn[0] !== playerId || !Turns.inHand(hand, card)) return; //checks if it is this players turn or if the card is in the players handarray.  if anyof it is false, simply return without running the rest of the code.  Lookslike this is a safety.  I will try to remove this later to test....
+
+            var tempObj = {};
+            tempObj['players.'+playerId+'.playing'] = card
+            Games.update(gameId, {$push:tempObj});
+
+            var match = Turns.findMatches(card, game.table);
+
+            if (match.length === 0) {
+                Turns.removeCardFromHand(gameId, playerId, card, hand);
+                Turns.addCardToTable(gameId, card, hand);
+            } else if (match.length === 1) {
+                // var tempObj = {};
+                // tempObj['players.'+playerId+'.playing'] = match[0]
+                // Games.update(gameId, {$push:tempObj});
+                Turns.removeCardFromHand(gameId, playerId, card, hand);
+                Turns.addCardToTable(gameId, card, hand);
+            } else if (match.length === 2) {
+                Turns.takeMatch(gameId, game, playerId, card, match)
+                Turns.removeCardFromHand(gameId, playerId, card, hand);
+            }
+
+            Games.update(gameId, {$set:{playerTurn:false}});
+        } else {
+            console.log('flip one card from deck');
+        }
+    },
+
+    takeTurnMethod2: function(gameId, playerId, card){
+        var game = Games.findOne(gameId);
+        var playerTurn = game.playerTurn;
+        if (!playerTurn) {
+            var game = Games.findOne(gameId),
+                hand = game.players[playerId].hand, //player's cards array
+                flipCard = game.deck[0],
+                // stooler = Turns.checkStooler(game, gameId, playerId, flipCard)
+                flipMatchPlayingCard = Turns.findMatches(flipCard, game.players[playerId].playing);
+                flipMatch = Turns.findMatches(flipCard, game.table);
+
+            Turns.removeCardFromDeck(gameId, playerId, flipCard, game.deck);
+            Turns.checkStooler(game, gameId, playerId, flipCard);
+            if (flipMatchPlayingCard.length===1 && game.players[playerId].playing===0) {
+                Turns.takeOppCard('Kisser');
+            } else if (flipMatchPlayingCard.length===1) {
+                Turns.takeMatch(gameId, game, playerId, flipCard, flipMatch);
+                Turns.removeCardFromTable(gameId, flipCard, game.table);
+            }
+            if (flipMatch.length === 2) {
+                Turns.takeMatch(gameId, game, playerId, flipCard, flipMatch)
+            } else if (flipMatch.length === 3) {
+                Turns.takeOppCard('Cleaner');
+            }
+
+            else {
+                Turns.addCardToTable(gameId, flipCard, hand);
+            };
+
+            var tempObj = {};
+            var temp = 'players.'+playerId+'.playing';
+            tempObj[temp] = 1;
+            Games.update(gameId, { $pop: tempObj });
+            Games.update(gameId, { $pop: tempObj });
+
+            Games.update(gameId, {$set:{playerTurn:true}});
+        } else {
+            console.log('play the players move first');
+        }
+    }
+
+
+});
+
+function allHandsEmpty(players){
+    return _.every(players, function(player){
+        return player.hand.length === 0;
+    })
+}
