@@ -22,8 +22,8 @@ session@1.1.6
 msavin:jetsetter
 msavin:mongol
 
-# accounts-ui
-ian:accounts-ui-bootstrap-3
+accounts-ui
+# ian:accounts-ui-bootstrap-3
 accounts-password@1.2.12
 momentjs:moment
 
